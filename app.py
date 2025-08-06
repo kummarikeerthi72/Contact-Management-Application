@@ -36,7 +36,7 @@ st.title("Welcome to Keerthi Contact Management Website")
 # Tabs for navigation
 tab1, tab2, tab3, tab4 = st.tabs(["Add New", "Modify", "Delete", "View All"])
 
-# 🧠 Function to check for duplicate
+#  Function to check for duplicate
 def is_duplicate(email, phone, fname, lname, df):
     for _, row in df.iterrows():
         email_existing = str(row["Email ID"]).strip().lower()
@@ -53,7 +53,7 @@ def is_duplicate(email, phone, fname, lname, df):
     return None
 
 
-# ✅ TAB 1: Add New Contact
+#  TAB 1: Add New Contact
 with tab1:
     st.subheader("Add New Contact")
     with st.form("add_contact_form", clear_on_submit=True):
@@ -88,7 +88,7 @@ with tab1:
                     df.to_csv(csv_file, index=False)
                     st.success("Contact added successfully!")
 
-# ✅ TAB 2: Modify Contact
+#  TAB 2: Modify Contact
 with tab2:
     st.subheader("Modify Contact")
     if not df.empty:
@@ -115,7 +115,7 @@ with tab2:
     else:
         st.info("No contacts found to modify.")
 
-# ✅ TAB 3: Delete Contact
+#  TAB 3: Delete Contact
 with tab3:
     st.subheader("Delete Contact")
     if not df.empty:
@@ -127,7 +127,7 @@ with tab3:
     else:
         st.info("No contacts available for deletion.")
 
-# ✅ TAB 4: View All Contacts
+#  TAB 4: View All Contacts
 with tab4:
     st.subheader("All Contacts")
     if not df.empty:
